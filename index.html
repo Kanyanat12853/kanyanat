@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กัญญาณัฐ สานคล่อง (มุก) - Academic Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Kanit', 'Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+        /* Glassmorphism effects */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 glass border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#about" class="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">KS</span>
+                    <span>KANYANAT<span class="text-emerald-600">.</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#about" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">เกี่ยวกับฉัน</a>
+                    <a href="#education" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ประวัติการศึกษา</a>
+                    <a href="#family" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ครอบครัว</a>
+                    <a href="#contact" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ติดต่อ</a>
+                    
+                    <!-- Dark Mode Toggle Button -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300" aria-label="Toggle theme">
+                        <i id="theme-toggle-dark-icon" class="fas me-1 fa-moon hidden"></i>
+                        <i id="theme-toggle-light-icon" class="fas me-1 fa-sun hidden"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button & Dark Mode Toggle -->
+                <div class="flex md:hidden items-center gap-2">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300" aria-label="Toggle theme">
+                        <i id="theme-toggle-dark-icon-m" class="fas fa-moon hidden"></i>
+                        <i id="theme-toggle-light-icon-m" class="fas fa-sun hidden"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 px-4 pt-2 pb-4 space-y-2">
+            <a href="#about" class="block py-2 px-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">เกี่ยวกับฉัน</a>
+            <a href="#education" class="block py-2 px-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">ประวัติการศึกษา</a>
+            <a href="#family" class="block py-2 px-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">ครอบครัว</a>
+            <a href="#contact" class="block py-2 px-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200">ติดต่อ</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20 flex-grow">
+
+        <!-- Hero / About Section -->
+        <section id="about" class="pt-6 sm:pt-12 scroll-mt-20">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <!-- Profile Image / Avatar -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                        <div class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 shadow-xl flex items-center justify-center">
+                            <!-- Avatar Placeholder -->
+                            <div class="text-center p-6">
+                                <i class="fas font-thin fa-user-graduate text-7xl text-emerald-600 dark:text-emerald-400 mb-3"></i>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">นางสาวกัญญาณัฐ สานคล่อง</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intro Text -->
+                <div class="md:col-span-7 space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Academic Portfolio
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
+                        กัญญาณัฐ สานคล่อง <span class="text-emerald-600 dark:text-emerald-400 text-2xl sm:text-3xl font-normal">(มุก)</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-300">
+                        นักเรียนสายการเรียน <span class="font-semibold text-emerald-600 dark:text-emerald-400">วิทยาศาสตร์-คณิตศาสตร์</span> มุ่งมั่นพัฒนาศักยภาพทางการเรียนรู้ พร้อมก้าวสู่การศึกษาระดับอุดมศึกษาด้วยความตั้งใจจริง
+                    </p>
+
+                    <!-- Quick Details Cards -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                        <div class="p-3 rounded-xl bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <span class="text-xs text-slate-400 block">อายุ</span>
+                            <span class="font-semibold text-slate-800 dark:text-slate-200">19 ปี</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <span class="text-xs text-slate-400 block">วันเกิด</span>
+                            <span class="font-semibold text-slate-800 dark:text-slate-200">12 ก.ย. 2550</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 shadow-sm col-span-2 sm:col-span-1">
+                            <span class="text-xs text-slate-400 block">สัญชาติ / เชื้อชาติ</span>
+                            <span class="font-semibold text-slate-800 dark:text-slate-200">ไทย / ไทย</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-3 pt-4">
+                        <a href="#contact" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition shadow-lg shadow-emerald-600/20 flex items-center gap-2">
+                            <i class="fas fa-paper-plane"></i> ติดต่อฉัน
+                        </a>
+                        <button onclick="downloadResumeModal()" class="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium text-sm transition flex items-center gap-2">
+                            <i class="fas fa-download"></i> ดาวน์โหลด PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="scroll-mt-20">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">ประวัติการศึกษา</h2>
+                <div class="w-12 h-1 bg-emerald-500 mx-auto rounded-full mt-2"></div>
+                <p class="text-slate-500 dark:text-slate-400 mt-3 text-sm">เส้นทางการเรียนรู้ตั้งระดับชั้นปฐมวัยจนถึงระดับมัธยมศึกษาตอนปลาย</p>
+            </div>
+
+            <!-- Education Timeline -->
+            <div class="max-w-3xl mx-auto relative border-l-2 border-emerald-200 dark:border-slate-700 ml-4 md:ml-auto">
+                
+                <!-- Timeline Item 3: Senior High -->
+                <div class="mb-10 ml-6 relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-emerald-600 border-4 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 mb-2">
+                            มัธยมศึกษาปีที่ 4 - 6
+                        </span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">โรงเรียนจักราชวิทยา</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-1">
+                            <i class="fas fa-flask text-emerald-500 mr-1"></i> แผนการเรียนวิทยาศาสตร์ - 수학 (Science-Math Track)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: Junior High -->
+                <div class="mb-10 ml-6 relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 border-4 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 mb-2">
+                            มัธยมศึกษาปีที่ 1 - 3
+                        </span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">โรงเรียนจักราชวิทยา</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">ระดับมัธยมศึกษาตอนต้น</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 1: Primary -->
+                <div class="ml-6 relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 border-4 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 mb-2">
+                            อนุบาล - ประถมศึกษาปีที่ 6
+                        </span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">โรงเรียนชุมชนบ้านบุสามัคคีพัฒนา</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">ระดับประถมศึกษาและปฐมวัย</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Family Background Section -->
+        <section id="family" class="scroll-mt-20">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">ข้อมูลครอบครัว</h2>
+                <div class="w-12 h-1 bg-emerald-500 mx-auto rounded-full mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <!-- Father -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-400 uppercase font-medium">บิดา</span>
+                        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100">นายนิรัญ สานคล่อง</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">อาชีพ: เกษตรกร</p>
+                    </div>
+                </div>
+
+                <!-- Mother -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-400 uppercase font-medium">มารดา</span>
+                        <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-100">นางวนัสนัน สานคล่อง</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">อาชีพ: รับจ้าง</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="scroll-mt-20">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">ช่องทางการติดต่อ</h2>
+                <div class="w-12 h-1 bg-emerald-500 mx-auto rounded-full mt-2"></div>
+                <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">ยินดีให้ข้อมูลเพิ่มเติม สามารถติดต่อสอบถามได้ตามช่องทางด้านล่าง</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- Contact Info Card -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                    <!-- Phone -->
+                    <a href="tel:0640832035" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400">เบอร์โทรศัพท์</span>
+                            <p class="font-medium text-slate-800 dark:text-slate-200">064-083-2035</p>
+                        </div>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://facebook.com" target="_blank" rel="noopener" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400">Facebook</span>
+                            <p class="font-medium text-slate-800 dark:text-slate-200">Kanyanat Sanklong</p>
+                        </div>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="flex items-center gap-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition">
+                        <div class="w-10 h-10 rounded-lg bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400">Instagram</span>
+                            <p class="font-medium text-slate-800 dark:text-slate-200">Kanyanat_Sanklong</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Address Card -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 dark:text-slate-100">ที่อยู่ปัจจุบัน</h3>
+                                <span class="text-xs text-slate-400">ที่อยู่ตามภูมิลำเนา</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed pl-1 text-sm sm:text-base">
+                            บ้านเลขที่ 77/18 หมู่ 13 <br>
+                            ตำบลหนองระเวียง อำเภอพิมาย <br>
+                            จังหวัดนครราชสีมา 30110
+                        </p>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700/50 text-xs text-slate-400 flex items-center gap-2">
+                        <i class="fas fa-info-circle text-emerald-500"></i>
+                        พร้อมสำหรับการศึกษาและการดำเนินกิจกรรมต่าง ๆ
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6">
+        <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500 dark:text-slate-400">
+            <p>© <span id="year"></span> Kanyanat Sanklong. Academic Portfolio.</p>
+            <p class="mt-1">Hosted on GitHub Pages</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JS -->
+    <script>
+        // Set dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIconM = document.getElementById('theme-toggle-dark-icon-m');
+        const lightIconM = document.getElementById('theme-toggle-light-icon-m');
+
+        function updateIcons(isDark) {
+            if (isDark) {
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+                darkIconM.classList.add('hidden');
+                lightIconM.classList.remove('hidden');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+                lightIconM.classList.add('hidden');
+                darkIconM.classList.remove('hidden');
+            }
+        }
+
+        // Check theme system/localStorage preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            updateIcons(true);
+        } else {
+            document.documentElement.classList.remove('dark');
+            updateIcons(false);
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                updateIcons(false);
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                updateIcons(true);
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Resume Modal Notification
+        function downloadResumeModal() {
+            const msg = "กำลังจัดเตรียมไฟล์ Resume สำหรับคุณกัญญาณัฐ สานคล่อง...";
+            // Safe non-alert message toast
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl text-sm z-50 flex items-center gap-3 animate-bounce';
+            toast.innerHTML = `<i class="fas fa-file-download text-emerald-500"></i> ${msg}`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
+</body>
+</html>
